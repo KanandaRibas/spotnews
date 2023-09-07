@@ -8,12 +8,16 @@
 {% block content %}
   <h1> My page News </h1>
   {% for item in news %}
-    <h2 class="news-title">{{ item.title }}</h2>
-    <span class="news-date">
-      {{ item.created_at|date:'d/m/Y' }}
-    </span>
-    {% if item.image %}
-      <img src="{% static item.image.url %}" alt="Imagem da notícia">
-    {% endif %}
+  <span>
+    <a href="{% url 'news-details-page' item.id %}">
+      <h2 class="news-title">{{ item.title }}</h2>
+      <span class="news-date">
+        {{ item.created_at|date:'d/m/Y' }}
+      </span>
+      {% if item.image %}
+        <img src="{% static item.image.url %}" alt="Imagem da notícia">
+      {% endif %}
+    </a>
+  </span>
   {% endfor %}
 {% endblock %}
