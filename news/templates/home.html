@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Página Inicial
+{% endblock %}
+
+{% block content %}
+  <h1> My page News </h1>
+  {% for item in news %}
+    <h2 class="news-title">{{ item.title }}</h2>
+    <span class="news-date">
+      {{ item.created_at|date:'d/m/Y' }}
+    </span>
+    {% if item.image %}
+      <img src="{% static item.image.url %}" alt="Imagem da notícia">
+    {% endif %}
+  {% endfor %}
+{% endblock %}
