@@ -4,7 +4,7 @@ Spotnews é um sistema para gerenciar um site de notícias desenvolvido usando o
 
 ## Executando o projeto
 
- 1. Clone o repositório:
+1. Clone o repositório:
 
 ```bash
 git clone git@github.com:KanandaRibas/spotnews.git
@@ -34,7 +34,19 @@ source .venv/bin/activate
 python3 -m pip install -r dev-requirements.txt
 ```
 
-6. Execute a aplicação:
+6. Aplique as migrações ao banco de dados:
+
+```bash
+python3 manage.py migrate
+```
+
+7. Popule as tabelas do banco de dados:
+
+```bash
+python3 manage.py runscript seeds
+```
+
+8. Execute a aplicação:
 
 ```bash
 python3 manage.py runserver
